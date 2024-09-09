@@ -1,5 +1,11 @@
-main{
+body{
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+main{
+    padding-top: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,20 +14,25 @@ main div.presentacion{
     display: flex;
     justify-content: center;
     position: relative;
-    bottom: 100px;
 }
-main div.presentacion picture.rickMorty{
+main div.presentacion div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main div.presentacion div picture.rickMorty{
     display: block;
-    width: 500px;
+    width: 300px;
 }
-main div.presentacion picture img{
+main div.presentacion div picture img{
     width: 100%;
 }
-main div.presentacion picture.logo{
+main div.presentacion div picture.logo{
+    max-width: 350px;
     width: auto;
-    position: absolute;
-    left: -50px;
-    bottom: -160px;
+    position: relative;
+    bottom: 10px;
 }
 main nav{   
     display: flex;
@@ -31,23 +42,31 @@ main nav{
     gap: 32px;
     z-index: 3;
 }
-
+footer p{
+    text-wrap: balance;
+}
 @media (max-width: 1200px) {
-    main div.presentacion picture.rickMorty,
-    main div.presentacion picture.logo{
+    main div.presentacion picture.rickMorty{
         width: 90%;
-        max-width: 430px;
+        max-width: 250px;
     }
     main div.presentacion picture.logo{
-        position: absolute;
-        left: -0px;
-        bottom: -100px;
+        width: 90%;
+        max-width: 350px;
+    }
+    main div.presentacion picture.logo{
+        
     }
 }
 @media (max-width: 900px) {
-    main div.presentacion picture.rickMorty,
-    main div.presentacion picture.logo{
-        width: 300px;
+    main div.presentacion div picture.rickMorty{
+        max-width: 230px;
+    }
+    main div.presentacion div picture.logo{
+        width: 280px;
+    }
+    main div.presentacion div picture.logo{
+        
     }
     main div.presentacion nav a{
         font-size: 2rem;
@@ -61,16 +80,14 @@ main nav{
         align-items: center;
         bottom: 0;
     }
-    main div.presentacion picture.rickMorty{
+    main div.presentacion div picture.rickMorty{
         width: 80%;
-        max-width: 290px;
+        max-width: 200px;
         order: 1;
     }
-    main div.presentacion picture.logo{
+    main div.presentacion div picture.logo{
         width: 90%;
-        max-width: 280px;
-        position: relative;
-        bottom: 20px;
+        max-width: 300px;
         order: 2;
     }
     main div.presentacion nav{
@@ -78,6 +95,13 @@ main nav{
         gap: 12px;
     }
     main div.presentacion nav a{
+        width: 100% ;
+        max-width: 280px;
+        margin: 0 auto;
+        font-size: 1.5rem;
         background-color: var(--white--10);
+    }
+    footer p{
+        font-size: .8rem;
     }
 }

@@ -15,7 +15,7 @@ header a img{
     filter: drop-shadow(0 0 4px var(--skyblue--100));
 }
 main{
-    padding: 0   32px;
+    padding: 0 32px;
 }
 main h1{
     color: var(--skyblue--100);
@@ -32,6 +32,7 @@ main section.personajes{
     gap: 12px;
 }
 main section.personajes div.personaje{
+    max-width: 230px;
     display: flex;
     border-radius: 12px ;
     padding: 12px;
@@ -41,6 +42,7 @@ main section.personajes div.personaje *{
     color: var(--dark--100);    
 }
 main section.personajes div.personaje div.datos{
+    width: 100%;
     border-radius: 6px;
     border: 3px solid var(--dark--100);
     position: relative;
@@ -55,20 +57,20 @@ main section.personajes div.personaje div.datos.frente{
     transform: perspective(600px) rotateY(0deg);
 }
 main section.personajes div.personaje div.datos:hover{
-    scale: 1.1 1.08;
+    scale: 1.15 1.08;
 }
 main section.personajes div.personaje div.datos.frente p strong{
     display: flex;
     align-items: center;
     height: 3rem;
     line-height: 2rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 main section.personajes div.personaje div.datos.frente picture{
     display: block;
     position: relative;
-    width: 250px;
-    height: 254px;
+    width: 100%;
+    height: 204px;
     border-top: 2px solid var(--dark--100);
     border-bottom: 2px solid var(--dark--100);
 }
@@ -77,9 +79,9 @@ main section.personajes div.personaje div.datos.frente picture img{
 }
 main section.personajes div.personaje div.datos.frente span{
     position: absolute;
-    top: -3px;
-    right: -3px;
-    font-size: 2rem;
+    top: 6px;
+    right: 6px;
+    font-size: 1.5rem;
     cursor: default ;
 }
 main section.personajes div.personaje div.datos.frente h2{   
@@ -88,19 +90,20 @@ main section.personajes div.personaje div.datos.frente h2{
     max-width: 230px;
     display: flex;
     align-items: center;
-    font-size: 1.5rem   ;
+    font-size: 1.2rem   ;
     text-wrap: wrap;
     text-align: center;
 }
 main section.personajes div.personaje div.datos.detras{
-    width: 256px;
-    height: 356px;
+    width: 206px;
+    height: 306px;
     position: absolute;
     opacity: 0;
     transform: perspective(600px) translateZ(-10000px);
 }
 main section.personajes div.personaje div.datos.detras h2{
-    margin-bottom: 12px;
+    font-size: 1.2rem;
+    margin: 12px 0;
     text-align: center;
     border-bottom: 3px solid var(--dark--100);
 }
@@ -117,7 +120,7 @@ main section.personajes div.personaje div.datos.detras ul li p{
     font-weight: 500;
 }
 main section.personajes div.personaje div.datos.detras ul li p strong{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
 }
 main section.personajes div.personaje div.datos.detras picture{
@@ -188,7 +191,7 @@ main form div input[type='submit']{
         width: 200px;
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     header{
         padding: 4px;
     }
@@ -214,6 +217,7 @@ main form div input[type='submit']{
         gap: 12px 0px;
     }
     main section.personajes div.personaje{
+        max-width: 160px;
         padding: 6px;
     }
     main section.personajes div.personaje div.datos.frente p{
@@ -221,9 +225,10 @@ main form div input[type='submit']{
     }
     main section.personajes div.personaje div.datos.frente picture{
         width: 130px;
+        max-width: 130px;
         height: 134px;
     }
-    main section.personajes div.personaje div.datos.frente h2{        width: min-content;
+    main section.personajes div.personaje div.datos.frente h2{        
         letter-spacing: -0.5px;
         font-size: 1rem;
         height: 60px;
@@ -239,11 +244,11 @@ main form div input[type='submit']{
         background-color: var(--brown--100);
     }
     main section.personajes div.personaje div.datos.detras h2{
-        font-size: 1.5rem;
+        font-size:2rem;
     }
     main section.personajes div.personaje div.datos.detras ul li p,
     main section.personajes div.personaje div.datos.detras ul li p strong{
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
     main section.personajes div.personaje div.datos.detras picture{
         display: block;

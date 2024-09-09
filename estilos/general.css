@@ -42,7 +42,7 @@ picture.contenedor_smoke{
     animation: smoke1 12s linear both alternate infinite ;
 }
 h1{
-    font-size: 3rem;
+    font-size: 2.3rem;
     letter-spacing: 3px;
     text-transform: uppercase;
 }
@@ -58,7 +58,7 @@ a{
     
     padding: 0px 12px;
     border-radius: 6px;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 4rem;
     text-align: center;   
     font-style: italic;
