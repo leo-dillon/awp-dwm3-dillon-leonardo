@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./../IMG/favicon.png">
+    <link rel="stylesheet" href="./../estilos/general.css">
+    <link rel="stylesheet" href="./../estilos/personajes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Rick and Morty - Personajes</title>
+</head>
+<body>
+    <header>
+        <a href="./../index.html">
+            <img src="./../IMG/icono/flechaIzquierda.png" alt="Flecha izquierda">
+            Volver atras. 
+        </a>
+    </header>
+    <main>
+        <h1>Personajes</h1>
+        <form>
+            <div>
+                <label for="name">Buscador</label>
+                <input type="text" name="name" id="name" placeholder="----">
+            </div>
+            <div>
+                <label for="gender">Generos</label>
+                <select name="gender" id="gender">
+                    <option value="">----</option>
+                    <option value="male">Hombre</option>
+                    <option value="female">Femenino</option>
+                    <option value="unknown">Desconocido</option>
+                </select>
+            </div>
+            <div>
+                <label for="status">Estado</label>
+                <select name="status" id="status">
+                    <option value="">----</option>
+                    <option value="live">Vivo</option>
+                    <option value="dead">Muerto</option>
+                    <option value="unknown">Desconocido</option>
+                </select>
+            </div>
+            <div>
+                <label for="species">Especie</label>
+                <select name="species" id="species">
+                    <option value="">----</option>
+                    <option value="human">Humano</option>
+                    <option value="alien">Alien</option>
+                    <option value="humanoid">Humanoide</option>
+                    <option value="poopybutthole">Poopybutthole</option>
+                    <option value="Mythological">Mitológico</option>
+                    <option value="unknonw">Desconocido</option>
+                    <option value="Animal">Animal</option>
+                    <option value="Disease">Enfermedad</option>
+                    <option value="Robot">Robot</option>
+                    <option value="Cronenberg">Mutaciones</option>
+                    <option value="Cronenberg">Mutaciones</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Filtrar">
+            </div>
+        </form>
+        <section class="personajes">
+            <h2 class="load" style="display: none;">Cargando</h2>
+        </section>
+    </main>
+    <footer>
+        <p>© Leonardo Dillon - Desarrollador y diseñador web ( 2024 ) </p>
+    </footer>
+    <picture class="contenedor_smoke">
+        <img class="smoke" src="./../IMG/smoke.png" alt="Humo / Smoke">
+    </picture>
+    <script src="./../javaScript/personajes.js"></script>
+</body>
+</html>

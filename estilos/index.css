@@ -1,0 +1,83 @@
+main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main div.presentacion{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 100px;
+}
+main div.presentacion picture.rickMorty{
+    display: block;
+    width: 500px;
+}
+main div.presentacion picture img{
+    width: 100%;
+}
+main div.presentacion picture.logo{
+    width: auto;
+    position: absolute;
+    left: -50px;
+    bottom: -160px;
+}
+main nav{   
+    display: flex;
+    align-self: stretch;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    z-index: 3;
+}
+
+@media (max-width: 1200px) {
+    main div.presentacion picture.rickMorty,
+    main div.presentacion picture.logo{
+        width: 90%;
+        max-width: 430px;
+    }
+    main div.presentacion picture.logo{
+        position: absolute;
+        left: -0px;
+        bottom: -100px;
+    }
+}
+@media (max-width: 900px) {
+    main div.presentacion picture.rickMorty,
+    main div.presentacion picture.logo{
+        width: 300px;
+    }
+    main div.presentacion nav a{
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    main div.presentacion{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        bottom: 0;
+    }
+    main div.presentacion picture.rickMorty{
+        width: 80%;
+        max-width: 290px;
+        order: 1;
+    }
+    main div.presentacion picture.logo{
+        width: 90%;
+        max-width: 280px;
+        position: relative;
+        bottom: 20px;
+        order: 2;
+    }
+    main div.presentacion nav{
+        order: 3;
+        gap: 12px;
+    }
+    main div.presentacion nav a{
+        background-color: var(--white--10);
+    }
+}

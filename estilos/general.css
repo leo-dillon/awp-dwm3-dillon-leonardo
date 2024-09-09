@@ -1,0 +1,104 @@
+:root{
+    --dark--100: rgba(14, 14, 14, 100%);
+    --dark--80: rgba(14, 14, 14, 80%);
+    --dark--50: rgba(14, 14, 14, 50%);
+    --dark--40: rgba(14, 14, 14, 40%);
+    --dark--10: rgba(14, 14, 14, 10%);
+
+    --white--100: rgba(241, 241, 241, 100%);
+    --white--60: rgba(241, 241, 241, 60%);
+    --white--20: rgba(241, 241, 241, 20%);
+    --white--10: rgba(241, 241, 241, 10%);
+
+    --skyblue--100: rgb(8, 175, 207, 100%);
+    --skyblue--50: rgb(8, 175, 207, 50%);
+
+    --green--100: #a4ca3a;
+    --green--10: rgb(164, 202, 58, 10%);
+
+    --brown--100: rgb(198, 172, 139, 100%);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: var(--white--100);
+    font-family: 'Cinzel';
+}
+body{
+    background-color: #18181B;
+}
+picture.contenedor_smoke{
+    width: 2000px;
+    position: fixed;
+    bottom: -200px;
+    z-index: -1;
+}
+.smoke{
+    width: 100%;
+    transform-origin: 50% 50% ;
+    animation: smoke1 12s linear both alternate infinite ;
+}
+h1{
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+h2{
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
+span{
+    font-size: 1rem;
+    text-transform: lowercase;
+}
+a{
+    
+    padding: 0px 12px;
+    border-radius: 6px;
+    font-size: 3rem;
+    line-height: 4rem;
+    text-align: center;   
+    font-style: italic;
+    color: var(--skyblue--100);
+    -webkit-text-stroke: 1px var(--green--100);
+    letter-spacing: 3px;
+    transition: background-color .2s ease-out ;
+}
+a:hover{
+    background-color: var(--white--10);
+}
+
+footer{
+    padding: 42px;
+    text-align: center;
+}
+@keyframes smoke1{
+    0% {
+        filter: blur(4px);
+        transform: translateY(0px) scale(-1, 1) rotate(0deg);
+        opacity: 0.05;
+    }
+    25% {
+        filter: blur(5px);
+        transform: translateY(-10px) scale(-1, 1.05)  rotate(10deg);
+        opacity: 0.1;
+    }
+    50%{
+        filter: blur(5px);
+        transform: translateY(-20px) scale(-1, 1.1)  rotate(15deg);
+        opacity: 0.35;
+    }
+    75%{
+        filter: blur(7px);
+        transform: translateY(-30px) scale(-1, 1.15)  rotate(20deg);
+        opacity: 0.2;
+    }
+    100%{
+        filter: blur(12px);
+        transform: translateY(-40px) scale(-1, 1.2) rotate(25deg);
+        opacity: 0.1;
+    }
+}
