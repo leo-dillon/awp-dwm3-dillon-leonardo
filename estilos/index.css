@@ -2,7 +2,7 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 main{
     padding-top: 42px;
@@ -23,14 +23,15 @@ main div.presentacion div{
 }
 main div.presentacion div picture.rickMorty{
     display: block;
-    width: 300px;
+    width: 100%;
+    max-width: 500px;
 }
 main div.presentacion div picture img{
     width: 100%;
 }
 main div.presentacion div picture.logo{
-    max-width: 350px;
-    width: auto;
+    width: 100%;
+    max-width: 550px;
     position: relative;
     bottom: 10px;
 }
@@ -39,37 +40,43 @@ main nav{
     align-self: stretch;
     flex-direction: column;
     justify-content: center;
-    gap: 32px;
+    gap: 64px;
     z-index: 3;
 }
+main div nav a{
+    font-size: 4rem;
+    text-align: center;
+}
 footer p{
+    font-size: 1.3rem;
     text-wrap: balance;
 }
 @media (max-width: 1200px) {
-    main div.presentacion picture.rickMorty{
-        width: 90%;
-        max-width: 250px;
+    main div.presentacion div picture.rickMorty{
+        max-width: 450px;
     }
-    main div.presentacion picture.logo{
-        width: 90%;
-        max-width: 350px;
+    main div.presentacion div picture.logo{
+        max-width: 400px;
     }
-    main div.presentacion picture.logo{
-        
+    main div nav a{
+        font-size: 3rem;
     }
 }
 @media (max-width: 900px) {
     main div.presentacion div picture.rickMorty{
-        max-width: 230px;
+        max-width: 400px;
     }
     main div.presentacion div picture.logo{
-        width: 280px;
+        width: 320px;
     }
     main div.presentacion div picture.logo{
         
     }
+    main div.presentacion nav{
+        gap: 32px;
+    }
     main div.presentacion nav a{
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -95,6 +102,7 @@ footer p{
         gap: 12px;
     }
     main div.presentacion nav a{
+        justify-content: center;
         width: 100% ;
         max-width: 280px;
         margin: 0 auto;

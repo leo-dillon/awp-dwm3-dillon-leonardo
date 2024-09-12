@@ -1,94 +1,111 @@
-/*
-    GITHUB -
-    Dat
-*/
-let ejemplo = {
-    "id": 1,
-    "name": "Rick Sanchez",
-    "status": "Alive",
-    "species": "Human",
-    "type": "",
-    "gender": "Male",
-    "origin": {
-    "name": "Earth (C-137)",
-    "url": "https://rickandmortyapi.com/api/location/1"
-    },
-    "location": {
-    "name": "Citadel of Ricks",
-    "url": "https://rickandmortyapi.com/api/location/3"
-    },
-    "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-    "episode": [
-    "https://rickandmortyapi.com/api/episode/1",
-    "https://rickandmortyapi.com/api/episode/2",
-    "https://rickandmortyapi.com/api/episode/3",
-    "https://rickandmortyapi.com/api/episode/4",
-    "https://rickandmortyapi.com/api/episode/5",
-    "https://rickandmortyapi.com/api/episode/6",
-    "https://rickandmortyapi.com/api/episode/7",
-    "https://rickandmortyapi.com/api/episode/8",
-    "https://rickandmortyapi.com/api/episode/9",
-    "https://rickandmortyapi.com/api/episode/10",
-    "https://rickandmortyapi.com/api/episode/11",
-    "https://rickandmortyapi.com/api/episode/12",
-    "https://rickandmortyapi.com/api/episode/13",
-    "https://rickandmortyapi.com/api/episode/14",
-    "https://rickandmortyapi.com/api/episode/15",
-    "https://rickandmortyapi.com/api/episode/16",
-    "https://rickandmortyapi.com/api/episode/17",
-    "https://rickandmortyapi.com/api/episode/18",
-    "https://rickandmortyapi.com/api/episode/19",
-    "https://rickandmortyapi.com/api/episode/20",
-    "https://rickandmortyapi.com/api/episode/21",
-    "https://rickandmortyapi.com/api/episode/22",
-    "https://rickandmortyapi.com/api/episode/23",
-    "https://rickandmortyapi.com/api/episode/24",
-    "https://rickandmortyapi.com/api/episode/25",
-    "https://rickandmortyapi.com/api/episode/26",
-    "https://rickandmortyapi.com/api/episode/27",
-    "https://rickandmortyapi.com/api/episode/28",
-    "https://rickandmortyapi.com/api/episode/29",
-    "https://rickandmortyapi.com/api/episode/30",
-    "https://rickandmortyapi.com/api/episode/31",
-    "https://rickandmortyapi.com/api/episode/32",
-    "https://rickandmortyapi.com/api/episode/33",
-    "https://rickandmortyapi.com/api/episode/34",
-    "https://rickandmortyapi.com/api/episode/35",
-    "https://rickandmortyapi.com/api/episode/36",
-    "https://rickandmortyapi.com/api/episode/37",
-    "https://rickandmortyapi.com/api/episode/38",
-    "https://rickandmortyapi.com/api/episode/39",
-    "https://rickandmortyapi.com/api/episode/40",
-    "https://rickandmortyapi.com/api/episode/41",
-    "https://rickandmortyapi.com/api/episode/42",
-    "https://rickandmortyapi.com/api/episode/43",
-    "https://rickandmortyapi.com/api/episode/44",
-    "https://rickandmortyapi.com/api/episode/45",
-    "https://rickandmortyapi.com/api/episode/46",
-    "https://rickandmortyapi.com/api/episode/47",
-    "https://rickandmortyapi.com/api/episode/48",
-    "https://rickandmortyapi.com/api/episode/49",
-    "https://rickandmortyapi.com/api/episode/50",
-    "https://rickandmortyapi.com/api/episode/51"
-    ],
-    "url": "https://rickandmortyapi.com/api/character/1",
-    "created": "2017-11-04T18:48:46.250Z"
+const API = 'https://rickandmortyapi.com/api'
+const personaje = '/character'
+const ubicacion = '/location'
+const capitulos = '/episode'
+
+function numARomano(num) {
+    const valoresRomanos = [
+        { v: 1000, s: 'M' },
+        { v: 900, s: 'CM' },
+        { v: 500, s: 'D' },
+        { v: 400, s: 'CD' },
+        { v: 100, s: 'C' },
+        { v: 90, s: 'XC' },
+        { v: 50, s: 'L' },
+        { v: 40, s: 'XL' },
+        { v: 10, s: 'X' },
+        { v: 9, s: 'IX' },
+        { v: 5, s: 'V' },
+        { v: 4, s: 'IV' },
+        { v: 1, s: 'I' }
+    ];
+    let r = '';
+    for (let i = 0; i < valoresRomanos.length; i++) {
+        while (num >= valoresRomanos[i].v) {
+            r += valoresRomanos[i].s;
+            num -= valoresRomanos[i].v;
+        }
     }
-const API_URL = 'https://rickandmortyapi.com/api'
-function fetchAPI(){
-//     fetch(API_URL)
-//         .then(data => data.json())
-//         .then(res => {
-//             console.log(res)
-//         })
+    return r;
 }
-fetchAPI()
+function buscarIDs(array){
+    let respuesta = []
+    array.forEach(resident => {
+        respuesta.push(resident.split('/').slice(-1)[0])
+    });
+    return respuesta
+}
+function icon(estado){
+    let icon
+    switch (estado) {
+        case 'Alive':
+            icon = '💚'
+            break;
+        case 'Dead':
+            icon = '💀'
+            break
+        case 'unknown':
+            icon = '❓'
+            break
+        default:
+            icon = estado
+            break;
+    }
+   
+    return icon
+    
+}
+function generarCards(datos, cont){
+    if(!datos.length){
+        let array = []
+        array.push(datos)
+        datos = array
+    }
+    cont.innerHTML = ''
+    datos.forEach(element => {
+        let contenedor = document.createElement('div')
+        contenedor.classList.add('personaje')
+        contenedor.innerHTML += `
+            <div class="datos frente">
+                <p><strong>${numARomano(element.id)}</strong></p>
+                <picture>
+                    <img src="${element.image}" alt="personaje ${element.name}">
+                </picture>
+                <span title='${element.status}' >${icon(element.status)}</span>                
+                <h2>${element.name}</h2>
+            </div>
+            <div class="datos detras">
+                <h2>${element.name}</h2>
+                <ul>
+                    <li>
+                        <p><strong>Genero:</strong> ${icon(element.gender)}</p>
+                    </li>
+                    <li>
+                        <p><strong>Especie:</strong> ${element.species}</p>
+                    </li>
+                    <li>
+                        <p><strong>Origen:</strong> ${element.origin.name}</p>
+                    </li>
+                    <li>
+                        <p><strong>Estado:</strong> ${element.status}</p>
+                    </li>
+                </ul>
+                <picture>
+                    <img src="${element.image}" alt="personaje ${element.name}">
+                </picture>
+            </div>
+        `
+        let frente = contenedor.querySelector('div.frente') 
+        let detras = contenedor.querySelector('div.detras')
+        frente.addEventListener('click', () => {
+            frente.style = `opacity: 0; transform: perspective(600px) translateZ(-10000px);`  
+            detras.style = `opacity: 1; transform: perspective(600px) translateZ( 0px);`  
+        })
+        detras.addEventListener('click', () => {
+            detras.style = `opacity: 0; transform: perspective(600px) translateZ(-10000px);`  
+            frente.style = `opacity: 1; transform: perspective(600px) translateZ( 0px);`
+        })
+        cont.append(contenedor)
+    });
 
-
-function crearHumo(){
-    const w = window.innerWidth
-    const h = window.innerHeight
-    // <picture>
-    //     <img class="smoke" src="./IMG/smoke.png" alt="">
-    // </picture>
 }

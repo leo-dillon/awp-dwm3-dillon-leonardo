@@ -55,10 +55,13 @@ span{
     text-transform: lowercase;
 }
 a{
-    
-    padding: 0px 12px;
+    width: max-content;
+    padding: 2px 12px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
     border-radius: 6px;
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 4rem;
     text-align: center;   
     font-style: italic;
@@ -70,35 +73,274 @@ a{
 a:hover{
     background-color: var(--white--10);
 }
-
+header{
+    padding: 24px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--white--100);
+}
+header a img{
+    width: 32px;
+    transform: rotate(180deg);
+    filter: drop-shadow(0 0 4px var(--skyblue--100));
+}
+main h1{
+    color: var(--skyblue--100);
+    -webkit-text-stroke: 1px var(--green--100);
+    font-size: 4rem;
+}
+main section.personajes{
+    width: 100%;
+    max-width: 1500px;
+    padding: 6px;
+    margin: 24px auto 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+main section.personajes div.personaje{
+    max-width: 250px;
+    display: flex;
+    border-radius: 12px ;
+    padding: 12px;
+    background-color: var(--brown--100);
+}
+main section.personajes div.personaje *{
+    color: var(--dark--100);    
+}
+main section.personajes div.personaje div.datos{
+    width: 100%;
+    border-radius: 6px;
+    border: 3px solid var(--dark--100);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 42px var(--dark--100);
+    cursor: pointer;
+    transition: scale .1s ease-out, transform .4s ease-out, opacity .4s ease-out;
+}
+main section.personajes div.personaje div.datos.frente{
+    transform: perspective(600px) rotateY(0deg);
+}
+main section.personajes div.personaje div.datos:hover{
+    scale: 1.15 1.08;
+}
+main section.personajes div.personaje div.datos.frente p strong{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    line-height: 2rem;
+    font-size: 1.5rem;
+}
+main section.personajes div.personaje div.datos.frente picture{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 224px;
+    border-top: 2px solid var(--dark--100);
+    border-bottom: 2px solid var(--dark--100);
+}
+main section.personajes div.personaje div.datos.frente picture img{
+    width: 100%;
+}
+main section.personajes div.personaje div.datos.frente span{
+    position: absolute;
+    top: 52px;
+    right: 4px;
+    font-size: 1.5rem;
+    background-color: var(--dark--100);
+    border-radius: 50%;
+    cursor: default ;
+}
+main section.personajes div.personaje div.datos.frente h2{   
+    height: 100%;
+    min-height: 3rem;
+    max-width: 230px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem   ;
+    text-wrap: wrap;
+    text-align: center;
+}
+main section.personajes div.personaje div.datos.detras{
+    width: 222px;
+    height: 326px;
+    position: absolute;
+    opacity: 0;
+    transform: perspective(600px) translateZ(-10000px);
+}
+main section.personajes div.personaje div.datos.detras h2{
+    font-size: 1.2rem;
+    margin: 12px 0;
+    text-align: center;
+    border-bottom: 3px solid var(--dark--100);
+}
+main section.personajes div.personaje div.datos.detras ul{
+    height: 100%;
+    width: 90%;
+    margin: 0 auto 12px;
+}
+main section.personajes div.personaje div.datos.detras ul li{
+    padding: 5px 6px;
+    border-bottom: 3px solid var(--skyblue--100);
+}
+main section.personajes div.personaje div.datos.detras ul li p{
+    font-weight: 500;
+}
+main section.personajes div.personaje div.datos.detras ul li p strong{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+main section.personajes div.personaje div.datos.detras picture{
+    display: none;
+}
 footer{
     padding: 42px;
     text-align: center;
 }
 @keyframes smoke1{
     0% {
-        filter: blur(4px);
+        filter: blur(12px);
         transform: translateY(0px) scale(-1, 1) rotate(0deg);
         opacity: 0.05;
     }
     25% {
-        filter: blur(5px);
+        filter: blur(15px);
         transform: translateY(-10px) scale(-1, 1.05)  rotate(10deg);
-        opacity: 0.1;
+        opacity: 0.2;
     }
     50%{
-        filter: blur(5px);
+        filter: blur(20px);
         transform: translateY(-20px) scale(-1, 1.1)  rotate(15deg);
         opacity: 0.35;
     }
     75%{
-        filter: blur(7px);
+        filter: blur(15px);
         transform: translateY(-30px) scale(-1, 1.15)  rotate(20deg);
         opacity: 0.2;
     }
     100%{
         filter: blur(12px);
         transform: translateY(-40px) scale(-1, 1.2) rotate(25deg);
-        opacity: 0.1;
+        opacity: 0.15;
+    }
+}
+
+@media (max-width: 900px) {
+    header a{
+        font-size: 2rem;
+    }
+    main h1{
+        font-size: 2rem;
+    }
+    main section.personajes{
+        justify-content: center;
+    }
+    main section.personajes div.personaje{
+        width: 100%;
+        max-width: 180px;
+        padding: 6px;
+    }
+    main section.personajes{
+        justify-content: space-around;
+        gap: 12px 4px;
+    }
+    main section.personajes div.personaje{
+        width: 100%;
+        max-width: 160px;
+        padding: 6px;
+    }
+    main section.personajes div.personaje div.datos.frente p strong{
+        font-size: 1.3rem;
+    }
+    main section.personajes div.personaje div.datos.frente p{
+        width: 90%;
+    }
+    main section.personajes div.personaje div.datos.frente picture{
+        width: 100%;
+        max-width: 142px;
+        height: 146px;
+    }
+    main section.personajes div.personaje div.datos.frente h2{        
+        letter-spacing: -0.5px;
+        font-size: 1rem;
+        max-width: 80%;
+        text-wrap: pretty;
+        height: 60px;
+    }
+    main section.personajes div.personaje div.datos.detras{
+        width: 60%;
+        height: 80%;
+        min-height: fit-content;
+        padding: 24px 0;
+        position: fixed;
+        top: 10%;
+        left: 20%;
+        z-index: 100;
+        background-color: var(--brown--100);
+    }
+    main section.personajes div.personaje div.datos.detras h2{
+        font-size: 2.5rem;
+    }
+    main section.personajes div.personaje div.datos.detras ul li p,
+    main section.personajes div.personaje div.datos.detras ul li p strong{
+        font-size: 1.5rem;
+    }
+    main section.personajes div.personaje div.datos.detras picture{
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+    }
+    main section.personajes div.personaje div.datos.detras picture img{
+        width: 100%;
+        border-radius: 24px;
+        border: 3px solid var(--skyblue--100);;
+    }
+}
+@media (max-width: 600px) {
+    body main{
+        padding: 2px;
+    }
+    main h1{
+        text-align: center;
+    }
+    
+    main section.personajes div.personaje div.datos.detras{
+        width: 90%;
+        height: 90%;
+        padding: 24px 0;
+        top: 5%;
+        left: 5%;
+        z-index: 100;
+        background-color: var(--brown--100);
+    }
+    main section.personajes div.personaje div.datos.detras h2{
+        font-size:2rem;
+    }
+    main section.personajes div.personaje div.datos.detras ul li p,
+    main section.personajes div.personaje div.datos.detras ul li p strong{
+        font-size: 1.3rem;
+    }
+    main section.personajes div.personaje div.datos.detras picture{
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+    }
+    main section.personajes div.personaje div.datos.detras picture img{
+        width: 100%;
+        border-radius: 24px;
+        border: 3px solid var(--skyblue--100);;
+    }
+}
+@media (max-width: 400px) {
+    header{
+        padding: 12px;
+    }
+    header a{
+        font-size: 2rem;
+    }
+    header a img{
+        display: none;
     }
 }
