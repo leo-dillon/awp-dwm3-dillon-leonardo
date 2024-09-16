@@ -2,6 +2,8 @@ const API = 'https://rickandmortyapi.com/api'
 const personaje = '/character'
 const ubicacion = '/location'
 const capitulos = '/episode'
+const page_Favoritos = document.querySelector('a.fav')
+let favoritos = (localStorage.getItem('fav')?.length) ? JSON.parse(localStorage.getItem('fav')) : []
 
 function numARomano(num) {
     const valoresRomanos = [
@@ -78,9 +80,6 @@ function generarCards(datos, cont){
                 <h2>${element.name}</h2>
                 <ul>
                     <li>
-                        <p><strong>Genero:</strong> ${icon(element.gender)}</p>
-                    </li>
-                    <li>
                         <p><strong>Especie:</strong> ${element.species}</p>
                     </li>
                     <li>
@@ -89,7 +88,8 @@ function generarCards(datos, cont){
                     <li>
                         <p><strong>Estado:</strong> ${element.status}</p>
                     </li>
-                </ul>
+                    </ul>
+                    <button class='fav'>${existeFavorito(element.id)? 'Remover': 'Guardar'}</button>
                 <picture>
                     <img src="${element.image}" alt="personaje ${element.name}">
                 </picture>
@@ -97,6 +97,7 @@ function generarCards(datos, cont){
         `
         let frente = contenedor.querySelector('div.frente') 
         let detras = contenedor.querySelector('div.detras')
+        let fav = contenedor.querySelector('button.fav')
         frente.addEventListener('click', () => {
             frente.style = `opacity: 0; transform: perspective(600px) translateZ(-10000px);`  
             detras.style = `opacity: 1; transform: perspective(600px) translateZ( 0px);`  
@@ -105,7 +106,90 @@ function generarCards(datos, cont){
             detras.style = `opacity: 0; transform: perspective(600px) translateZ(-10000px);`  
             frente.style = `opacity: 1; transform: perspective(600px) translateZ( 0px);`
         })
+        fav.addEventListener('click', (e) => {
+            e.stopPropagation()
+            if(existeFavorito(element.id)){
+                quitarFavorito(contenedor, element.id)
+                fav.innerText = 'Guardar'
+            }else{
+                anadirFavorito(element.id)
+                fav.innerText = 'Remover'
+            }
+        })
+        contenedor.style = `animation: desaparecer ${numRandom()}s alternate-reverse ease-out both;`
+        frente.style = `animation: aparecerDerecha ${numRandom()}s ease-out both;`
         cont.append(contenedor)
     });
 
+}
+page_Favoritos?.addEventListener('click', (e) => {
+    e.preventDefault()
+    if(favoritos.length >= 1){
+        location.href = '/pag/favoritos.html'
+    }else{
+        generarMensaje('Error', 'Debes guardar un articulo antes de acceder a esta sección.')
+    }
+})
+function existeFavorito(id){
+   return favoritos.includes(id)
+}
+function anadirFavorito(id){
+    favoritos.push(id)
+    generarMensaje('Guardado', 'Has guardado con exito tu carta.')
+    guardarLocalStorage(favoritos)
+}
+function quitarFavorito(contenedor, id){
+    let posicion = favoritos.indexOf(id)
+    favoritos.splice(posicion, 1)
+    generarMensaje('Removido', 'Eliminaste con exito la carta seleccionada.')
+    guardarLocalStorage(favoritos)
+    if(location.pathname == '/pag/favoritos.html'){
+        if(favoritos.length == 0 ){
+            let contador = 100;
+            contenedor__personajes.innerHTML = `
+                    <div style='display:flex; flex-direction:column; text-align:center;'>
+                        <h2> No tienes elementos guardados. </h2>
+                        <p> No deberías poder acceder a esta pestaña 🔥🔥🔥🔥</p>
+                        <p><strong class="cont" style='font-size:3rem;'> </strong></p>
+                    </div>
+                    `
+            let intervalo = setInterval(() => {
+                contenedor__personajes.querySelector('.cont').innerText = contador;
+                if (contador === 0) {
+                    clearInterval(intervalo);
+                    location.href = '/'
+                }
+                contador--;
+            }, 100);
+        }
+        contenedor.style = `animation: desaparecer ${numRandom()}s both ease-out;`
+        setTimeout(() => {
+            contenedor.remove()
+        }, 510);
+        
+    }
+}
+function generarMensaje(titulo, mensaje){
+    document.querySelector('div.cartel')?.remove()
+    let cartel = document.createElement('div')
+    cartel.classList.add('cartel')
+    cartel.innerHTML += `
+        <h2>${titulo}</h2>
+        <p>${mensaje}</p>
+        <button>❌</button>
+    `
+    document.body.prepend(cartel)
+    setTimeout(() => {
+        cartel.style = `animation: desaparecerDerecha .3s ease-in both;`
+        setTimeout(() => {
+            cartel.remove()
+        }, 2000);
+    }, 3000);
+}
+function guardarLocalStorage(elementos){
+    localStorage.setItem('fav', JSON.stringify(elementos))
+}
+function numRandom(){
+    let num = ((Math.floor(Math.random()* 12  )) / 10 ) + 0.5
+    return num
 }

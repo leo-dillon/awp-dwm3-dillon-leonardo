@@ -5,18 +5,20 @@
     --dark--40: rgba(14, 14, 14, 40%);
     --dark--10: rgba(14, 14, 14, 10%);
 
+    --grey--100: rgba(195, 195, 195, 100%);
+
     --white--100: rgba(241, 241, 241, 100%);
     --white--60: rgba(241, 241, 241, 60%);
     --white--20: rgba(241, 241, 241, 20%);
     --white--10: rgba(241, 241, 241, 10%);
 
-    --skyblue--100: rgb(8, 175, 207, 100%);
-    --skyblue--50: rgb(8, 175, 207, 50%);
+    --skyblue--100: rgba(8, 175, 207, 100%);
+    --skyblue--50: rgba(8, 175, 207, 50%);
 
-    --green--100: #a4ca3a;
-    --green--10: rgb(164, 202, 58, 10%);
+    --green--100: rgba(164, 202, 58, 100%);
+    --green--10: rgba(164, 202, 58, 10%);
 
-    --brown--100: rgb(198, 172, 139, 100%);
+    --brown--100: rgba(198, 172, 139, 100%);
 }
 *{
     padding: 0;
@@ -40,6 +42,41 @@ picture.contenedor_smoke{
     width: 100%;
     transform-origin: 50% 50% ;
     animation: smoke1 12s linear both alternate infinite ;
+}
+div.cartel{
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 24px;
+    border-bottom-left-radius: 24px;
+    background-color: var(--white--100);
+    z-index: 100;
+    animation: aparecerDerecha .3s ease-out both;
+}
+div.cartel h2{
+    margin-bottom: 24px;
+    color: var(--dark--100);
+    font-size: 1.5rem;
+    border-bottom: 3px solid var(--dark--40);
+}
+div.cartel p{
+    color: var(--dark--100);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-wrap: pretty;
+    text-align: center;
+}
+div.cartel button{
+    padding: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--dark--10);
+    border: 0;
 }
 h1{
     font-size: 2.3rem;
@@ -83,6 +120,9 @@ header a img{
     transform: rotate(180deg);
     filter: drop-shadow(0 0 4px var(--skyblue--100));
 }
+main{
+    overflow: hidden;
+}
 main h1{
     color: var(--skyblue--100);
     -webkit-text-stroke: 1px var(--green--100);
@@ -122,6 +162,7 @@ main section.personajes div.personaje div.datos{
 }
 main section.personajes div.personaje div.datos.frente{
     transform: perspective(600px) rotateY(0deg);
+    overflow: hidden;
 }
 main section.personajes div.personaje div.datos:hover{
     scale: 1.15 1.08;
@@ -195,38 +236,23 @@ main section.personajes div.personaje div.datos.detras ul li p strong{
 main section.personajes div.personaje div.datos.detras picture{
     display: none;
 }
+main section.personajes div.personaje div.datos.detras button{
+    width: 100%;
+    padding: 4px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .1s ease-out;
+}
+main section.personajes div.personaje div.datos.detras button:hover{
+    background-color: var(--grey--100);
+    border-left: 0;
+    border-right: 0;
+}
 footer{
     padding: 42px;
     text-align: center;
 }
-@keyframes smoke1{
-    0% {
-        filter: blur(12px);
-        transform: translateY(0px) scale(-1, 1) rotate(0deg);
-        opacity: 0.05;
-    }
-    25% {
-        filter: blur(15px);
-        transform: translateY(-10px) scale(-1, 1.05)  rotate(10deg);
-        opacity: 0.2;
-    }
-    50%{
-        filter: blur(20px);
-        transform: translateY(-20px) scale(-1, 1.1)  rotate(15deg);
-        opacity: 0.35;
-    }
-    75%{
-        filter: blur(15px);
-        transform: translateY(-30px) scale(-1, 1.15)  rotate(20deg);
-        opacity: 0.2;
-    }
-    100%{
-        filter: blur(12px);
-        transform: translateY(-40px) scale(-1, 1.2) rotate(25deg);
-        opacity: 0.15;
-    }
-}
-
 @media (max-width: 900px) {
     header a{
         font-size: 2rem;
@@ -342,5 +368,84 @@ footer{
     }
     header a img{
         display: none;
+    }
+
+}
+
+
+
+@keyframes smoke1{
+    0% {
+        filter: blur(12px);
+        transform: translateY(0px) scale(-1, 1) rotate(0deg);
+        opacity: 0.25;
+    }
+    25% {
+        filter: blur(15px);
+        transform: translateY(-10px) scale(-1, 1.05)  rotate(10deg);
+        opacity: 0.3;
+    }
+    50%{
+        filter: blur(20px);
+        transform: translateY(-20px) scale(-1, 1.1)  rotate(15deg);
+        opacity: 0.5;
+    }
+    75%{
+        filter: blur(15px);
+        transform: translateY(-30px) scale(-1, 1.15)  rotate(20deg);
+        opacity: 0.24;
+    }
+    100%{
+        filter: blur(12px);
+        transform: translateY(-40px) scale(-1, 1.2) rotate(25deg);
+        opacity: 0.15;
+    }
+}
+@keyframes aparecerDerecha {
+    0%{
+        transform: translateX(3000px);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes desaparecerDerecha {
+    0%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(3000px);
+        opacity: 0;
+    }
+}
+@keyframes aparecerIzquierda {
+    0%{
+        transform: translateX(-3000px);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes desaparecerIzquierda {
+    0%{
+        transform: translateX(0px);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(-3000px);
+    }
+}
+@keyframes desaparecer{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
     }
 }

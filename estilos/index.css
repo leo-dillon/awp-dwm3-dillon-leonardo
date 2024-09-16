@@ -14,12 +14,14 @@ main div.presentacion{
     display: flex;
     justify-content: center;
     position: relative;
+    gap: 32px;
 }
 main div.presentacion div{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: aparecerDerecha .6s ease-out both;
 }
 main div.presentacion div picture.rickMorty{
     display: block;
@@ -40,8 +42,9 @@ main nav{
     align-self: stretch;
     flex-direction: column;
     justify-content: center;
-    gap: 64px;
+    gap: 42px;
     z-index: 3;
+    animation: aparecerIzquierda .8s ease-out both;
 }
 main div nav a{
     font-size: 4rem;
@@ -64,13 +67,15 @@ footer p{
 }
 @media (max-width: 900px) {
     main div.presentacion div picture.rickMorty{
+        width: 90%;
         max-width: 400px;
     }
     main div.presentacion div picture.logo{
-        width: 320px;
+        width: 80%;
+        max-width: 320px;
     }
-    main div.presentacion div picture.logo{
-        
+    main div.presentacion{
+        gap: 12px;
     }
     main div.presentacion nav{
         gap: 32px;
@@ -81,20 +86,26 @@ footer p{
 }
 
 @media (max-width: 600px) {
+    main{
+        margin-top: 32px;
+    }
     main div.presentacion{
         display: flex;
         flex-direction: column;
         align-items: center;
         bottom: 0;
     }
+    main div.presentacion div{
+        flex-direction: column-reverse;
+    }
     main div.presentacion div picture.rickMorty{
         width: 80%;
-        max-width: 200px;
+        max-width: 160px;
         order: 1;
     }
     main div.presentacion div picture.logo{
         width: 90%;
-        max-width: 300px;
+        max-width: 240px;
         order: 2;
     }
     main div.presentacion nav{

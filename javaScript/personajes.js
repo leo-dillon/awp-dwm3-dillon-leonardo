@@ -25,7 +25,7 @@ function GET_personajes(url  ,filtros = ''){
             generarCards(res.results, contenedor__personajes)
         })
         .catch(error => {
-            console.log(error)
+            console.error(error)
             contenedor__personajes.innerHTML = ``
             contenedor__personajes.innerHTML = `
                 <h2>No existen coincidencias.</h2>
