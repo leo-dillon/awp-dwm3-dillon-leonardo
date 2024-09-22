@@ -149,7 +149,7 @@ function quitarFavorito(contenedor, id){
             contenedor__personajes.innerHTML = `
                     <div style='display:flex; flex-direction:column; text-align:center;'>
                         <h2> No tienes elementos guardados. </h2>
-                        <p> No deberías poder acceder a esta pestaña 🔥🔥🔥🔥</p>
+                        <p> Ve a buscar más personajes 🔥🔥🔥🔥</p>
                         <p><strong class="cont" style='font-size:3rem;'> </strong></p>
                     </div>
                     `

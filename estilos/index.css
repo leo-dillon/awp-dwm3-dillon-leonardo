@@ -54,18 +54,18 @@ footer p{
     font-size: 1.3rem;
     text-wrap: balance;
 }
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px), screen and (max-height: 900px) {
     main div.presentacion div picture.rickMorty{
-        max-width: 450px;
+        max-width: 400px;
     }
     main div.presentacion div picture.logo{
-        max-width: 400px;
+        max-width: 350px;
     }
     main div nav a{
         font-size: 3rem;
     }
 }
-@media (max-width: 900px) {
+@media (max-width: 900px), screen and (max-height: 700px) {
     main div.presentacion div picture.rickMorty{
         width: 90%;
         max-width: 400px;
@@ -85,7 +85,7 @@ footer p{
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) , screen and (max-height: 600px) {
     main{
         margin-top: 32px;
     }

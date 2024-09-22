@@ -26,7 +26,7 @@ main form div{
     flex-direction: column;
 }
 main form div label{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
 }
 main form div input,
@@ -40,9 +40,15 @@ main form div input[type='text']{
     border: 0.5px solid black;
 }
 main form div input[type='submit']{
+    border-radius: 4px;
+    padding: 2px 12px;
     font-weight: 800;
+    cursor: pointer;
+    transition: background-color .2s ease-out;    
 }
-
+main form div input[type='submit']:hover{
+    background-color: var(--white--60);
+}
 @media (max-width: 900px) {
     main form{
         max-width: 600px;

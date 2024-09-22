@@ -16,8 +16,8 @@ function GET_personajesLocation(url  , ids = ''){
                  let contador = 100;
                 contenedor__personajes.innerHTML = `
                         <div style='display:flex; flex-direction:column; text-align:center;'>
-                            <h2> No tienes elementos guardados. </h2>
-                            <p> No deberías poder acceder a esta pestaña 🔥🔥🔥🔥</p>
+                            <h2> No puedes accedes a esta pestaña!!! </h2>
+                            <p> 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥</p>
                             <p><strong class="cont" style='font-size:3rem;'> </strong></p>
                         </div>
                         `
@@ -28,7 +28,7 @@ function GET_personajesLocation(url  , ids = ''){
                         location.href = '/'
                     }
                     contador = contador - 1 ;
-                }, 10);
+                }, 20);
             }else{
                 generarCards(res, contenedor__personajes)
             }

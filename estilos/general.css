@@ -8,6 +8,7 @@
     --grey--100: rgba(195, 195, 195, 100%);
 
     --white--100: rgba(241, 241, 241, 100%);
+    --white--80: rgba(241, 241, 241, 80%);
     --white--60: rgba(241, 241, 241, 60%);
     --white--20: rgba(241, 241, 241, 20%);
     --white--10: rgba(241, 241, 241, 10%);
@@ -79,7 +80,7 @@ div.cartel button{
     border: 0;
 }
 h1{
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     letter-spacing: 3px;
     text-transform: uppercase;
 }
@@ -98,7 +99,7 @@ a{
     align-items: center;
     gap: 24px;
     border-radius: 6px;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     line-height: 4rem;
     text-align: center;   
     font-style: italic;
@@ -126,7 +127,6 @@ main{
 main h1{
     color: var(--skyblue--100);
     -webkit-text-stroke: 1px var(--green--100);
-    font-size: 4rem;
 }
 main section.personajes{
     width: 100%;
@@ -253,11 +253,13 @@ footer{
     padding: 42px;
     text-align: center;
 }
-@media (max-width: 900px) {
-    header a{
+@media (max-width: 1200px) {
+    main h1{
         font-size: 2rem;
     }
-    main h1{
+}
+@media (max-width: 900px) {
+    header a{
         font-size: 2rem;
     }
     main section.personajes{

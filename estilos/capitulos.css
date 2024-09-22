@@ -40,7 +40,11 @@ main form div input[type='submit']{
     border-radius: 4px;
     padding: 2px 12px;
     font-weight: 800;
-    cursor: pointer;    
+    cursor: pointer;
+    transition: background-color .2s ease-out;    
+}
+main form div input[type='submit']:hover{
+    background-color: var(--white--60);
 }
 @media (max-width: 600px) {
     main form{
