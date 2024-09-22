@@ -300,7 +300,7 @@ footer{
     main section.personajes div.personaje div.datos.detras{
         width: 60%;
         height: 80vh;
-        max-height: 440px;
+        max-height: 800px;
         min-height: fit-content;
         padding: 24px 0 0;
         display: flex;
