@@ -72,7 +72,7 @@ div.cartel p{
     text-align: center;
 }
 div.cartel button{
-    padding: 4px;
+    padding: 8px;
     position: absolute;
     top: 0;
     right: 0;
@@ -300,6 +300,9 @@ footer{
         max-width: 80%;
         text-wrap: pretty;
         height: 60px;
+    }
+    main section.personajes div.personaje div.datos:hover{
+        scale: 1;
     }
     main section.personajes div.personaje div.datos.detras{
         width: 60%;

@@ -178,6 +178,9 @@ function generarMensaje(titulo, mensaje){
         <p>${mensaje}</p>
         <button>❌</button>
     `
+    cartel.querySelector('button').addEventListener('click', () => {
+        cartel.remove()
+    })
     document.body.prepend(cartel)
     setTimeout(() => {
         cartel.style = `animation: desaparecerDerecha .3s ease-in both;`
