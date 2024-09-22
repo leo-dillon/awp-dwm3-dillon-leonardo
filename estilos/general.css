@@ -186,10 +186,11 @@ main section.personajes div.personaje div.datos.frente picture img{
     width: 100%;
 }
 main section.personajes div.personaje div.datos.frente span{
+    padding: 4px;
     position: absolute;
     top: 52px;
     right: 4px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color: var(--dark--100);
     border-radius: 50%;
     cursor: default ;
@@ -210,6 +211,9 @@ main section.personajes div.personaje div.datos.detras{
     position: absolute;
     opacity: 0;
     transform: perspective(600px) translateZ(-10000px);
+}
+main section.personajes div.personaje div.datos.detras button.close{
+    display: none;
 }
 main section.personajes div.personaje div.datos.detras h2{
     font-size: 1.2rem;
@@ -305,18 +309,24 @@ footer{
         padding: 24px 0 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         position: fixed;
         top: 10%;
         left: 20%;
-        z-index: 100;
+        z-index: 80;
         background-color: var(--brown--100);
+    }
+    main section.personajes div.personaje div.datos.detras button.close{
+        display: block;
+        width: min-content;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
     main section.personajes div.personaje div.datos.detras h2{
         font-size: 2.5rem;
         order: 2;
     }
-    main section.personajes div.personaje div.datos.detras ul{
+    main section.personajes div.personaje div.datos.detras ul{  
         height: auto;
         order: 3;
     }
@@ -336,6 +346,9 @@ footer{
         border: 3px solid var(--skyblue--100);;
     }
     main section.personajes div.personaje div.datos.detras button.fav{
+        position: absolute;
+        bottom: 0;
+        justify-self: flex-end;
         order: 4;
     }
 }
@@ -352,7 +365,7 @@ footer{
         height: 90%;
         top: 5%;
         left: 5%;
-        z-index: 100;
+        z-index: 20;
         background-color: var(--brown--100);
     }
     main section.personajes div.personaje div.datos.detras h2{

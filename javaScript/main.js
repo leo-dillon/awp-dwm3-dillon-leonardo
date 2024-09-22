@@ -90,6 +90,7 @@ function generarCards(datos, cont){
                     </li>
                     </ul>
                     <button class='fav'>${existeFavorito(element.id)? 'Remover': 'Guardar'}</button>
+                    <button class='close'>❌</button>
                 <picture>
                     <img src="${element.image}" alt="personaje ${element.name}">
                 </picture>
