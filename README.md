@@ -45,6 +45,6 @@ Este proyecto es una aplicación web que utiliza la [API de Rick and Morty](http
 - Cuatrimestre: 3
 - Comisión: DM
 - Turno: Mañana
-- URL: [Proyecto RICK and MORTY](https://creando-pagina-de-rick-and-morty.vercel.app/index.html )
+- URL: [Proyecto RICK and MORTY](https://awp-dwm3-dillon-leonardo.vercel.app/pag/personajes.html)
 - repo : [Repositorio proyecto RICK and MORTY](https://github.com/leo-dillon/awp-dwm3-Dillon-Leonardo)
   
