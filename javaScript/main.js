@@ -116,7 +116,6 @@ function generarCards(datos, cont){
                 fav.innerText = 'Remover'
             }
         })
-        contenedor.style = `animation: desaparecer ${numRandom()}s alternate-reverse ease-out both;`
         frente.style = `animation: aparecerDerecha ${numRandom()}s ease-out both;`
         cont.append(contenedor)
     });
