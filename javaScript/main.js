@@ -196,3 +196,24 @@ function numRandom(){
     let num = ((Math.floor(Math.random()* 12  )) / 10 ) + 0.5
     return num
 }
+
+
+
+
+
+
+
+// server worker
+
+
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('../serviceWorker.js')
+        .then(function(registration){
+            console.log('El servicio de service Worker fue exitoso')
+            console.log(registration)
+        })
+        .catch( (er) => {
+            console.error('Error en cargar los archivos', er)
+
+        })
+}
