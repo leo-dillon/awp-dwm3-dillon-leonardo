@@ -1,7 +1,7 @@
 {
-    "name" : "Magig the gathering finder",
-    "short_name" : "MTGF",
-    "start_url" : "index.html",
+    "name" : "Rick and Morty API",
+    "short_name" : "RickMortyAPI",
+    "start_url" : "https://awp-dwm3-dillon-leonardo.vercel.app/",
     "display" : "fullscreen",
     "theme_color" : "#D9f5b3",
     "background_color" : "#f5f5f5",
