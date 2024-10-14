@@ -1,3 +1,22 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/serviceWorker.js')
+        .then(function (registration) {
+        })
+        .catch(function (error) {
+        });
+    }
+    if(window.Notification && Notification.permission !== 'denied'){
+        setTimeout("Notification.requestPermission()", 100)
+        let noti = new Notification ("titulo", {
+            body: "Bienvenido",
+            icon: "./IMG/favicon.png",
+            image: "./IMG/favicon.png"
+        })
+    }
+    
+
+
+
 const API = 'https://rickandmortyapi.com/api'
 const personaje = '/character'
 const ubicacion = '/location'

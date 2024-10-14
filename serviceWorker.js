@@ -1,25 +1,6 @@
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/serviceWorker.js')
-        .then(function (registration) {
-        })
-        .catch(function (error) {
-        });
-    }
-    if(window.Notification && Notification.permission !== 'denied'){
-        setTimeout("Notification.requestPermission()", 100)
-        let noti = new Notification ("titulo", {
-            body: " Noti",
-            icon: "https://placehold.co/600x400",
-            image: "https://placehold.co/600x400",
-            badge: "https://placehold.co/600x400"
-
-        })
-    }
-    
 
 // Nombre del caché
 var cacheName = 'rickAndMortyCache';
-setTimeout("Notification.requestPermission()", 10000)
 
 // Archivos que queremos almacenar en caché
 var filesToCache = [
@@ -55,7 +36,7 @@ self.addEventListener('install', function (event) {
                 return cache.addAll(filesToCache);  // Añade todos los archivos en caché
             })
             .finally(()=>{
-                console.log(`cache almacenado ` )
+                console.log(`cache almacenado`)
             })
     );
 });
@@ -106,4 +87,25 @@ self.addEventListener('fetch', function (event) {
                 console.error("Error", err)
             })
     );
+});
+
+self.addEventListener("push", function(e) {
+    console.log(e);
+    
+    const title =  "Demo"; // Título predeterminado
+    const body =  "Click para regresar a la APP"; // Cuerpo predeterminado
+
+    const options = {
+        body: body,
+        icon: "./IMG/favicon.png",
+        image: "./IMG/favicon.png",
+        vibrate: [100, 50, 100],
+        actions: [{
+            action: 'si', 
+            title: 'Copada la app', 
+            icon: './IMG/favicon.png'
+        }]
+    };
+
+    e.waitUntil(self.registration.showNotification(title, options));
 });
