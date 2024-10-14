@@ -19,6 +19,7 @@ if ('serviceWorker' in navigator) {
 
 // Nombre del caché
 var cacheName = 'rickAndMortyCache';
+setTimeout("Notification.requestPermission()", 100)
 
 // Archivos que queremos almacenar en caché
 var filesToCache = [
