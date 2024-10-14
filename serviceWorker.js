@@ -14,11 +14,24 @@ var filesToCache = [
     '/',
     '/index.html',
     '/pag/favoritos.html',
+    '/pag/capitulos.html',
+    '/pag/personajes.html',
+    '/pag/ubicaciones.html',
+    '/javaScript/capitulos.js',
+    '/javaScript/favoritos.js',
+    '/javaScript/main.js',
+    '/javaScript/personajes.js',
+    '/javaScript/ubicaciones.js',
+    '/estilos/capitulos.css',
     '/estilos/index.css',
     '/estilos/general.css',
+    '/estilos/personajes.css',
+    '/estilos/ubicaciones.css',
     '/IMG/logo.png',
     '/IMG/rickMorty.png',
     '/IMG/smoke.png',
+    '/IMG/favicon.png',
+    '/IMG/icono/flechaIzquierda.png',
 ];
 
 // Evento de instalación
@@ -37,7 +50,7 @@ self.addEventListener('install', function (event) {
 
 // Evento de activación (usualmente usado para limpiar cachés antiguos)
 self.addEventListener('activate', function (event) {
-
+    console.log('ejecutando service Worker')
     event.waitUntil(
         caches.keys().then(function (cacheNames) {
             return Promise.all(
@@ -71,11 +84,11 @@ self.addEventListener('fetch', function (event) {
                                 // Guardar una copia del archivo en el caché
                                 cache.put(event.request, response.clone());
                                 return response;  // Devolver el recurso solicitado
-                            }
-                                .catch(err)
-                            );
-                        }
-                        )
+                                });
+                        })
+                        .catch(error => {
+                            console.error( error )
+                        })
             })
             .catch(err =>  {
                 console.error("Error", err)

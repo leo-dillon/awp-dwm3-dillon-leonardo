@@ -1,0 +1,25 @@
+{
+    "name" : "Magig the gathering finder",
+    "short_name" : "MTGF",
+    "start_url" : "index.html",
+    "display" : "fullscreen",
+    "theme_color" : "#D9f5b3",
+    "background_color" : "#f5f5f5",
+    "description" : "lorem ipsum de mas",
+    "orientation" : "portrait",
+    "lang" : "es",
+    "dir" : "ltr",
+    "icons":[
+        {
+            "purpose":"maskable",
+            "sizes":"512x512",
+            "src":"assets/img/icon512_maskable.png",
+            "type":"image/png"
+        },
+        {
+            "purpose":"any",
+            "sizes":"512x512",
+            "src":"assets/img/icon512_rounded.png",
+            "type":"image/png"
+        }]
+}
