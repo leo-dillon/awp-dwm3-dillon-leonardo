@@ -4,7 +4,18 @@ if ('serviceWorker' in navigator) {
         })
         .catch(function (error) {
         });
+        if(window.Notification && Notification.permission !== 'denied'){
+            setTimeout("Notification.requestPermission()", 100)
+            let noti = new Notification ("titulo", {
+                body: " Noti",
+                icon: "https://placehold.co/600x400",
+                image: "https://placehold.co/600x400",
+                badge: "https://placehold.co/600x400"
+
+            })
+        }
 }
+
 
 // Nombre del caché
 var cacheName = 'rickAndMortyCache';
