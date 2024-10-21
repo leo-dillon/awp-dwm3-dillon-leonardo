@@ -4,15 +4,45 @@ if ('serviceWorker' in navigator) {
         })
         .catch(function (error) {
         });
-    }
-    if(window.Notification && Notification.permission !== 'denied'){
-        setTimeout("Notification.requestPermission()", 100)
-        let noti = new Notification ("titulo", {
-            body: "Bienvenido",
-            icon: "./IMG/favicon.png",
-            image: "./IMG/favicon.png"
+}
+if(window.Notification && Notification.permission !== 'denied'){
+    setTimeout("Notification.requestPermission()", 100)
+    let noti = new Notification ("titulo", {
+        body: "Bienvenido",
+        icon: "./IMG/favicon.png",
+        image: "./IMG/favicon.png"
+    })
+}
+
+window.addEventListener('change', () => {
+    let metaTheme = document.querySelector("meta[theme-color]")
+    // if( navigator.onLine ){
+    //     generarMensaje("Online", "Tiene conección a internet")
+    //     metaTheme.setAttribute()
+    // }else{
+    //     generarMensaje("Offline", "No tiene conección a internet")
+    // }
+    window.addEventListener('online', () => {
+        generarMensaje("Online", "Tiene conección a internet")
+        metaTheme.setAttribute()
+    });
+    
+    window.addEventListener('offline', () => {
+        generarMensaje("Offline", "No tiene conección a internet")
+    });
+})
+document.querySelector("#a").addEventListener('click', () => {
+    if (navigator.share) {
+        navigator.share({
+            title : "Quieres compartir ?",
+            text: "Visita la pàgina de Rick and Morty",
+            url: "https://awp-dwm3-dillon-leonardo.vercel.app/"
         })
+        .then( () => console.log("Se ejecuto"))
+        .catch(err => console.error("No mires detras de ti, SOY UN ERROR"))
     }
+})
+    
     
 
 
@@ -228,11 +258,10 @@ function numRandom(){
 if('serviceWorker' in navigator){
     navigator.serviceWorker.register('../serviceWorker.js')
         .then(function(registration){
-            console.log('El servicio de service Worker fue exitoso')
-            console.log(registration)
+            
         })
         .catch( (er) => {
-            console.error('Error en cargar los archivos', er)
+            
 
         })
 }

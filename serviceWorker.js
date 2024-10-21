@@ -36,14 +36,12 @@ self.addEventListener('install', function (event) {
                 return cache.addAll(filesToCache);  // Añade todos los archivos en caché
             })
             .finally(()=>{
-                console.log(`cache almacenado`)
             })
     );
 });
 
 // Evento de activación (usualmente usado para limpiar cachés antiguos)
 self.addEventListener('activate', function (event) {
-    console.log('ejecutando service Worker')
     event.waitUntil(
         caches.keys().then(function (cacheNames) {
             return Promise.all(
@@ -80,17 +78,14 @@ self.addEventListener('fetch', function (event) {
                                 });
                         })
                         .catch(error => {
-                            console.error( error )
                         })
             })
             .catch(err =>  {
-                console.error("Error", err)
             })
     );
 });
 
 self.addEventListener("push", function(e) {
-    console.log(e);
     
     const title =  "Demo"; // Título predeterminado
     const body =  "Click para regresar a la APP"; // Cuerpo predeterminado
