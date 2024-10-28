@@ -14,7 +14,6 @@ form.addEventListener('submit', (e) => {
     GET_personajes(personaje, hash)
 })
 function GET_personajes(url  ,filtros = ''){
-    console.log('ejecutando GET PERSONAJES')
     let URL_final = API + url + filtros
     contenedor__personajes.innerHTML = `
                 <h2>Buscando...</h2>

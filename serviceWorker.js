@@ -10,6 +10,7 @@ var filesToCache = [
     '/pag/capitulos.html',
     '/pag/personajes.html',
     '/pag/ubicaciones.html',
+    '/javaScript/home.js',
     '/javaScript/capitulos.js',
     '/javaScript/favoritos.js',
     '/javaScript/main.js',
@@ -56,8 +57,7 @@ self.addEventListener('activate', function (event) {
 });
 
 // Evento de fetch (intercepta las solicitudes de red)
-self.addEventListener('fetch', function (event) {
-
+self.addEventListener('fetch', function (event) { 
     event.respondWith(
         caches.match(event.request)  // Busca en el caché
             .then(function (response) {
@@ -68,17 +68,17 @@ self.addEventListener('fetch', function (event) {
                 }                
 
                 // Si no está en caché, hacer la solicitud de red y luego almacenarlo en caché
-                    return fetch(event.request)
-                        .then(function (response) {
-                            return caches.open(cacheName)   
-                                .then(function (cache) {
-                                // Guardar una copia del archivo en el caché
-                                cache.put(event.request, response.clone());
-                                return response;  // Devolver el recurso solicitado
-                                });
-                        })
-                        .catch(error => {
-                        })
+                return fetch(event.request)
+                    .then(function (response) {
+                        return caches.open(cacheName)   
+                            .then(function (cache) {
+                            // Guardar una copia del archivo en el caché
+                            cache.put(event.request, response.clone());
+                            return response;  // Devolver el recurso solicitado
+                            });
+                    })
+                    .catch(error => {
+                    })
             })
             .catch(err =>  {
             })
@@ -86,10 +86,8 @@ self.addEventListener('fetch', function (event) {
 });
 
 self.addEventListener("push", function(e) {
-    
     const title =  "Demo"; // Título predeterminado
     const body =  "Click para regresar a la APP"; // Cuerpo predeterminado
-
     const options = {
         body: body,
         icon: "./IMG/favicon.png",
@@ -101,6 +99,5 @@ self.addEventListener("push", function(e) {
             icon: './IMG/favicon.png'
         }]
     };
-
     e.waitUntil(self.registration.showNotification(title, options));
 });
