@@ -4,6 +4,13 @@ const ubicacion = '/location'
 const capitulos = '/episode'
 const page_Favoritos = document.querySelector('a.fav')
 let favoritos = (localStorage.getItem('fav')?.length) ? JSON.parse(localStorage.getItem('fav')) : []
+        
+if( navigator.onLine ){
+    generarMensaje("Online", "Tiene conección a internet")
+    metaTheme.setAttribute()
+}else{
+    generarMensaje("Offline", "No tiene conección a internet")
+}
 
 function numARomano(num) {
     const valoresRomanos = [

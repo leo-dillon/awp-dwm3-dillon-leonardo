@@ -5,15 +5,16 @@ if ('serviceWorker' in navigator) {
         .catch(function (error) {
         });
 }
-if(window.Notification && Notification.permission !== 'denied' && sessionStorage.getItem("login")){
+if(window.Notification && Notification.permission !== 'denied' && !sessionStorage.getItem("cargadedatos")){
     setTimeout("Notification.requestPermission()", 100)
     let noti = new Notification ("titulo", {
         body: "Bienvenido",
         icon: "./IMG/favicon.png",
         image: "./IMG/favicon.png"
     })
-    sessionStorage.setItem("login", true)
 }
+sessionStorage.setItem('cargadedatos', 'El usuario ya paso por la página hoy')
+
 window.addEventListener('change', () => {
     let metaTheme = document.querySelector("meta[theme-color]")
     window.addEventListener('online', () => {
