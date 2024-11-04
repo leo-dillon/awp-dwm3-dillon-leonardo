@@ -23,10 +23,10 @@ Este proyecto es una aplicación web que utiliza la [API de Rick and Morty](http
 
 1. Clona este repositorio en tu máquina local:
    ```bash
-   git clone https://github.com/tuusuario/tu-repositorio.git
+   https://github.com/leo-dillon/awp-dwm3-dillon-leonardo.git
 2. Navega hasta el directorio del proyecto
    ```bash
-   cd tu-repositorio
+   cd awp-dwm3-dillon-leonardo
 3. Abre el archivo index.html en tu navegador para ejecutar la aplicación.
 
 ## Tecnologías Utilizadas
