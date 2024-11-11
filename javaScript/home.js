@@ -5,6 +5,7 @@ if ('serviceWorker' in navigator) {
         .catch(function (error) {
         });
 }
+
 if(window.Notification && Notification.permission !== 'denied' && !sessionStorage.getItem("cargadedatos")){
     setTimeout("Notification.requestPermission()", 100)
     let noti = new Notification ("titulo", {
@@ -37,3 +38,41 @@ document.querySelector("#compartir").addEventListener('click', () => {
         .catch(err => console.error("No mires detras de ti, SOY UN ERROR"))
     }
 })
+
+
+console.log('a')
+const request = window.indexedDB.open('baseLocal', 1)
+request.onupgradeneeded = (e) => {
+    const db = e.target.result
+    // console.log(db)
+    const objectStore = db.createObjectStore('cliente', {keyPath: 'id'})
+    objectStore.createIndex('nombre', 'nombre', {unique: false})
+}
+request.onsuccess = (e) => {
+    const db = e.target.result
+    const transaction = db.transaction(['cliente'], 'readwrite')
+    const objectStore = transaction.objectStore('cliente')
+    objectStore.add({
+        id: 1,
+        nombre: 'Leo',
+        email: 'leo@davinci.edu.ar'
+    })
+    objectStore.add({
+        id: 2,
+        nombre: 'Karen',
+        email: 'karen@gmail.edu.ar'
+    })
+    const request = objectStore.getAll()
+    request.onsuccess = (e) => {
+        console.log(e.target.result)
+    }
+    transaction.oncomplete = () => {
+        const transaction = db.transaction(['cliente'], 'readonly')
+        const objectStore = transaction.objectStore('cliente')
+        const request = objectStore.getAll()
+        request.onsuccess = (e) => {
+            console.log(e.target.result)
+        }
+    }
+}
+
