@@ -8,5 +8,19 @@
     "description" : "lorem ipsum de mas",
     "orientation" : "portrait",
     "lang" : "es",
-    "dir" : "ltr"
+    "dir" : "ltr",
+    "icons":[
+        {
+            "purpose": "maskable",
+            "size": "512x512",
+            "src": "./IMG/logoGrande.png",
+            "type": "image/png"
+        },
+        {
+            "purpose": "sal",
+            "size": "144x144",
+            "src": "./IMG/logoChico.png",
+            "type": "image/png"
+        }
+    ]
 }
